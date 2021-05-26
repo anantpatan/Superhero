@@ -17,7 +17,7 @@ function player_update(){
     canvas.add(player_object);
     });
 }
-function blocks(getblock_img){
+function new_image(getblock_img){
     fabric.Image.fromURL(getblock_img, function(Img){
         block_object=Img;
         block_object.scaleToWidth(block_width);
@@ -28,4 +28,60 @@ function blocks(getblock_img){
         });
         canvas.add(block_object);
     });
+}
+
+window.addEventListener("keydown",mykeydown);
+function mykeydown(e){
+   keycode=e.keyCode;
+   console.log(keycode);
+   if(keycode=="37"){
+       console.log("left");
+       left();
+   }
+   else if(keycode=="38"){
+       console.log("up");
+       up();
+   }
+   else if(keycode=="39"){
+       console.log("right");
+       right();
+   }
+   else if(keycode=="40"){
+       console.log("down");
+       down();
+   }
+   if(e.shiftKey==true&&keycode=="80"){
+       console.log("shift+P");
+       block_width=block_width+10;
+       block_height=block_height+10;
+       document.getElementById("current_width").innerHTML=block_width;
+       document.getElementById("current_height").innerHTML=block_height;
+   }
+   else if(e.shiftKey==true&&keycode=="77"){
+       console.log("shift+M");
+       block_width=block_width-10;
+       block_height=block_height-10;
+       document.getElementById("current_width").innerHTML=block_width;
+       document.getElementById("current_height").innerHTML=block_height;
+   }
+   if(keycode=="70"){
+       console.log("F");
+       new_image('thor_face.png');
+   }
+   if(keycode=="66"){
+       console.log("B");
+       new_image('ironman_body.png');
+   }
+   if(keycode=="76"){
+       console.log("L");
+           new_image('spiderman_legs.png'); 
+   }
+   if(keycode=="82"){
+       console.log("R");
+       new_image('hulk_right_hand.png');
+   }
+   if(keycode=="72"){
+       console.log("H");
+       new_image('captain_america_left_hand.png');
+   }
 }
