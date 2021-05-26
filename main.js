@@ -85,3 +85,40 @@ function mykeydown(e){
        new_image('captain_america_left_hand.png');
    }
 }
+
+function up(){
+    if(playerY>=0){
+        playerY=playerY-block_height;
+        console.log("block height"+block_height);
+        console.log("X="+playerX+" Y="+playerY);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function down(){
+    if(playerY<=450){
+        playerY=playerY+block_height;
+        console.log("block height"+block_height);
+        console.log("X="+playerX+" Y="+playerY);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function left(){
+    if(playerX>=0){
+        playerX=playerX-block_width;
+        console.log("block width"+block_width);
+        console.log("X="+playerX+" Y="+playerY);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function right(){
+    if(playerX<=850){
+        playerX=playerX+block_width;
+        console.log("block width"+block_width);
+        console.log("X="+playerX+" Y="+playerY);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
